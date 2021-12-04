@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android API WebView</string>
+    <string name="github_text"><a href="https://github.com">GitHub</a></string>
+    <string name="open_page">Open Page</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_apis">APIs</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
