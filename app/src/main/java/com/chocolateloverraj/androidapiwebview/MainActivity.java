@@ -1,38 +1,36 @@
 package com.chocolateloverraj.androidapiwebview;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.chocolateloverraj.androidapiwebview.databinding.ActivityMain2Binding;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView openText;
+
+    private ActivityMain2Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        openText = findViewById(R.id.openText);
+        binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main2);
+        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    public void onOpen(View view) {
-        System.out.println(openText.getText());
-        Intent intent = new Intent(this, PageViewer.class);
-        Uri uri = Uri.parse(openText.getText().toString());
-        if (uri.getScheme() == null)
-            uri = Uri.fromParts("android-api-webview", uri.getPath(), uri.getFragment());
-        else if (!uri.getScheme().equals("https")) {
-            Toast.makeText(this, "Url must be https", Toast.LENGTH_LONG).show();
-            return;
-        }
-        System.out.println(uri);
-        System.out.println(uri.getScheme() + ", " + uri.getHost() + ", " + uri.getPath() + ", " + uri.getFragment());
-        intent.setData(uri);
-        startActivity(intent);
-    }
 }
