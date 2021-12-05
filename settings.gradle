@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android API WebView"
 include ':app'
+include ':api_level_api'
+include ':battery_api'

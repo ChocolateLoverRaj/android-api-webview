@@ -2,8 +2,18 @@
     <string name="app_name">Android API WebView</string>
     <string name="github_text"><a href="https://github.com">GitHub</a></string>
     <string name="open_page">Open Page</string>
-    <string name="title_activity_main2">MainActivity2</string>
     <string name="title_home">Home</string>
     <string name="title_apis">APIs</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_api_level_api">API Level API</string>
+    <string name="api_level_api_description">
+        Provides
+        <a href="https://developer.android.com/reference/android/os/Build.VERSION?hl=en#SDK_INT">
+            <code>Build.VERSION.SDK_INT</code>
+        </a>
+    </string>
+    <string name="title_battery_api">Battery API</string>
+    <string name="battery_api_description">
+        Provides battery %
+    </string>
 </resources>
