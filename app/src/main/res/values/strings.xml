@@ -16,4 +16,8 @@
     <string name="battery_api_description">
         Provides battery %
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deferred_uninstall_message">Will uninstall later in background</string>
+    <string name="more_info">"More Info"</string>
 </resources>

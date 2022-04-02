@@ -25,7 +25,7 @@ public class ApisFragment extends Fragment {
 
         final RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new ApisRecyclerViewAdapter(getContext()));
+        recyclerView.setAdapter(new ApisRecyclerViewAdapter(requireContext()));
 
         return root;
     }
