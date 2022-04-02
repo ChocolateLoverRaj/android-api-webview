@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chocolateloverraj.androidapiwebview.MyRecyclerViewAdapter;
+import com.chocolateloverraj.androidapiwebview.ApisRecyclerViewAdapter;
 import com.chocolateloverraj.androidapiwebview.databinding.FragmentApisBinding;
 
-public class DashboardFragment extends Fragment {
+public class ApisFragment extends Fragment {
 
     private FragmentApisBinding binding;
 
@@ -25,7 +25,7 @@ public class DashboardFragment extends Fragment {
 
         final RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new MyRecyclerViewAdapter(getContext()));
+        recyclerView.setAdapter(new ApisRecyclerViewAdapter(getContext()));
 
         return root;
     }
