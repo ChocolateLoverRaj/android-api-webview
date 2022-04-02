@@ -1,28 +1,28 @@
-package com.chocolateloverraj.androidapiwebview;
+package com.chocolateloverraj.androidapiwebview
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.webkit.WebView;
-import android.widget.Toast;
-
-public class PageViewer extends AppCompatActivity {
-    WebView webView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_viewer);
-
-        webView = findViewById(R.id.webView);
-
-        final Intent intent = getIntent();
-        final Uri uri = intent.getData();
-
-        System.out.println(uri + ", " + uri.getScheme());
-        final String webViewUrl = "https://" + uri.toString().substring(uri.getScheme().length() + 1);
-        webView.loadUrl(webViewUrl);
+class PageViewer : AppCompatActivity() {
+    @SuppressLint("SetJavaScriptEnabled")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_page_viewer)
+        val webView = findViewById<WebView>(R.id.webView)
+        val intent = intent
+        val uri = intent.data!!
+        println(uri)
+        val webViewUrl = "https" + uri.toString().substring(uri.scheme!!.length)
+        println(webViewUrl)
+        webView.settings.javaScriptEnabled = true
+        webView.settings.databaseEnabled = true
+        webView.settings.allowContentAccess = true
+        webView.settings.domStorageEnabled = true
+        webView.settings.blockNetworkLoads = false
+        webView.webViewClient = WebViewClient()
+        webView.loadUrl(webViewUrl)
     }
 }

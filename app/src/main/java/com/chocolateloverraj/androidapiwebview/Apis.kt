@@ -1,74 +1,45 @@
-package com.chocolateloverraj.androidapiwebview;
+package com.chocolateloverraj.androidapiwebview
 
-import androidx.annotation.NonNull;
+object Apis {
+    var apis = arrayOf(
+            object : Api {
+                override val module: String
+                    get() = "api_level_api"
+                override val name: Int
+                    get() = R.string.title_api_level_api
+                override val description: Int
+                    get() = R.string.api_level_api_description
+                override val icon: Int
+                    get() = R.drawable.ic_baseline_android_24
+            },
+            object : Api {
+                override val module: String
+                    get() = "battery_api"
+                override val name: Int
+                    get() = R.string.title_battery_api
+                override val description: Int
+                    get() = R.string.battery_api_description
+                override val icon: Int
+                    get() = R.drawable.ic_baseline_battery_unknown_24
+            }
+    )
 
-import com.chocolateloverraj.androidapiwebview.R;
-
-public class Apis {
     interface Api {
-        @NonNull
-        String getModule();
+        val module: String
 
         /**
          * @return The string resource id
          */
-        int getName();
+        val name: Int
 
         /**
          * @return The resource id
          */
-        int getDescription();
+        val description: Int
 
         /**
          * @return The drawable id
          */
-        int getIcon();
+        val icon: Int
     }
-
-    static Api[] apis = {
-            new Api() {
-                @NonNull
-                @Override
-                public String getModule() {
-                    return "api_level_api";
-                }
-
-                @Override
-                public int getName() {
-                    return R.string.title_api_level_api;
-                }
-
-                @Override
-                public int getDescription() {
-                    return R.string.api_level_api_description;
-                }
-
-                @Override
-                public int getIcon() {
-                    return R.drawable.ic_baseline_android_24;
-                }
-            },
-            new Api() {
-                @NonNull
-                @Override
-                public String getModule() {
-                    return "battery_api";
-                }
-
-                @Override
-                public int getName() {
-                    return R.string.title_battery_api;
-                }
-
-                @Override
-                public int getDescription() {
-                    return R.string.battery_api_description;
-                }
-
-                @Override
-                public int getIcon() {
-                    return R.drawable.ic_baseline_battery_unknown_24;
-                }
-            }
-    };
 }
