@@ -30,11 +30,14 @@ class HomeFragment : Fragment() {
         println(binding!!.openText.text)
         val intent = Intent(activity, PageViewer::class.java)
         var uri = Uri.parse(Objects.requireNonNull(binding!!.openText.text).toString())
-        if (uri.scheme == null) uri = Uri.fromParts("android-api-webview", uri.path, uri.fragment) else if (uri.scheme != "https") {
+        if (uri.scheme == null) {
+            uri = Uri.parse(PageViewer.customScheme + "://$uri")
+        }
+        else if (!(uri.scheme == "https" || uri.scheme == PageViewer.customScheme)) {
             Toast.makeText(activity, "Url must be https", Toast.LENGTH_LONG).show()
             return
         }
-        println(uri)
+        println(uri.toString())
         println(uri.scheme + ", " + uri.host + ", " + uri.path + ", " + uri.fragment)
         intent.data = uri
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)

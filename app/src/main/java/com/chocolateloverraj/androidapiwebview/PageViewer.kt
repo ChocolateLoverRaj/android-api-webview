@@ -7,6 +7,10 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 
 class PageViewer : AppCompatActivity() {
+    companion object {
+        const val customScheme = "android-api-webview"
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
