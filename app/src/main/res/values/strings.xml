@@ -22,4 +22,5 @@
     <string name="more_info">"More Info"</string>
     <string name="example_site">somesite.com.xyz.co.uk</string>
     <string name="open">Open</string>
+    <string name="deny_all_permissions">Deny all permissions</string>
 </resources>
